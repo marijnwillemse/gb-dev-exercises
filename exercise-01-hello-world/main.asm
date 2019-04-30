@@ -1,13 +1,10 @@
 INCLUDE "hardware.inc"
 
-
 SECTION "Header", ROM0[$100]
-
 EntryPoint: ; This is where execution begins
     di ; Disable interrupts. That way we can avoid dealing with them, especially since we didn't talk about them yet :p
     jp Start ; Leave this tiny space
 
-    
 REPT $150 - $104
     db 0
 ENDR
@@ -64,12 +61,10 @@ Start:
     jr .lockup
 
 SECTION "Font", ROM0
-
 FontTiles:
 INCBIN "font.chr"
 FontTilesEnd:
 
 SECTION "Hello World string", ROM0
-
 HelloWorldStr:
     db "Hello World!", 0
